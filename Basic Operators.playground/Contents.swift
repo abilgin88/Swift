@@ -189,3 +189,36 @@ if (enteredDoorCode && passedRetinaScan) || hasHeader ||
 } else {
     print("ACCESS DENIED")
 }
+
+// Shift operations
+
+1 << 3 // <-- 2^3
+32 >> 2 // <-- 2^-4
+
+// Math functions
+
+sin(45 * Double.pi / 180)
+cos(135 * Double.pi / 180)
+
+(2.0).squareRoot()
+
+max(5,10)
+min(-5, -10)
+
+max((2.0).squareRoot(), Double.pi / 2)
+
+// increment and decrement
+
+var counter: Int = 0
+
+counter += 1
+counter -= 1
+
+var counter1:Int = 0
+counter1 = counter1 + 1
+counter1 = counter1 - 1
+
+counter1 = 10
+counter1 *= 3
+counter1 /= 2
+
