@@ -281,7 +281,7 @@ while count2 < 10 {
     print(sonuc)
 }
 
-let n = 10
+//let n = 10
 var current = 1
 var previous = 1
 var done = 2
@@ -292,3 +292,22 @@ while done < n {
     done += 1
 }
 print("Fibonacci number \(n) is \(current)")
+
+// Challenge 8: Make a loop
+
+var givenFactor = 7
+
+for i in 1...12 {
+    let x = i * givenFactor
+    print("\(i) x \(givenFactor) = \(x)")
+}
+
+let factor = 7
+var accumulator = 0
+
+var i = 0
+while i <= 12 {
+    print("\(factor) x \(i) = \(accumulator)")
+    accumulator += 7
+    i += 1
+}
