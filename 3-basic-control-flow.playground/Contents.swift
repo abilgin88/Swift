@@ -241,3 +241,20 @@ while trial < number {
 }
 
 print("Next power of 2 >= \(number) is \(trial) which is 2 to the power of \(times)" )
+
+// Challenge 6: Triangular number
+
+let n = 5
+let tn = n * (n + 1) / 2
+
+print("Triangular number of \(n) is \(tn)")
+
+
+var depth = 5
+var count = 1
+var triangularNumber = 0
+while count <= depth {
+    triangularNumber += count
+    count += 1
+}
+print("Triangular number with depth \(depth) is \(triangularNumber)")
