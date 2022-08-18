@@ -258,3 +258,37 @@ while count <= depth {
     count += 1
 }
 print("Triangular number with depth \(depth) is \(triangularNumber)")
+
+// Challenge 7: Fibonacci
+
+let f0 = 0
+var f1 = 1
+var f2 = f1 + f0
+var f3 = f2 + f1
+var f4 = f3 + f2
+var f5 = f4 + f3
+
+var x1 = 1
+var x2 = 1
+var sonuc = 0
+var count2 = 0
+
+while count2 < 10 {
+    x1 = x2
+    x2 = sonuc
+    sonuc = x1 + x2
+    count2 += 1
+    print(sonuc)
+}
+
+let n = 10
+var current = 1
+var previous = 1
+var done = 2
+while done < n {
+    let next = current + previous
+    previous = current
+    current = next
+    done += 1
+}
+print("Fibonacci number \(n) is \(current)")
