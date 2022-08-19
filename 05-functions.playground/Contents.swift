@@ -54,3 +54,68 @@ func printMultipleOf1(_ multiplier: Int, _ value: Int = 1) {
 printMultipleOf1(4)
 printMultipleOf1(4,3)
 
+//: Return values
+func multiply(_ number: Int, by multiplier: Int) -> Int {
+    return number * multiplier
+}
+let result = multiply(4, by: 3)
+
+//
+
+func multipleAndDivide(_ number: Int, by factor: Int)
+-> (product: Int, quotient: Int) {
+    return (number * factor, number / factor)
+}
+
+let result1 = multipleAndDivide(4, by: 2)
+let product = result1.product
+let quotient = result1.quotient
+
+
+// single statement <--  no need return
+
+func multiply2(_ number: Int, by multiplier: Int) -> Int {
+    number * multiplier
+}
+
+func multiplyAndDivide(_ number: Int, by factor:Int)
+-> (product: Int, quotient: Int) {
+    (number * factor , number / factor)
+}
+
+//: Advanced parameter handling
+/*Function parameters are constants, which means they can’t be modified.*/
+func incrementAndPrint(_ value : Int) {
+    //value += 1
+    print(value)
+}
+
+incrementAndPrint(5)
+
+/* It is important to note that Swift copies the value before passing it to the function, a behavior known as pass-by-value.*/
+
+/* Sometimes you do want to let a function change a parameter directly, a behavior known as copy-in copy-out or call by value result. You do it like so:*/
+
+func incrementAndPrint(_ value: inout Int) {
+    value += 1
+    print(value)
+}
+
+var value = 5
+incrementAndPrint(&value)
+print(value)
+
+//: Overloading
+func getValue() -> Int {
+    32
+}
+
+func getValue() -> String {
+    "Abdullah Bilgin"
+}
+
+// let value = getValue() <--    error: ambiguous use of 'getValue()'
+
+let valueInt: Int = getValue()
+let valueString: String = getValue()
+
