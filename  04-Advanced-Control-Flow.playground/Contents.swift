@@ -285,3 +285,94 @@ case (let name, 40...60):
 default:
     print("INVALID AGE")
 }
+
+// Challenge 1: How many times
+var sum2 = 0
+for i in 0...5 {
+    sum2 += i
+}
+print(sum2)
+
+
+// Challenge 2: Count the letter
+var aLotOfAs = ""
+while aLotOfAs.count < 10 {
+    aLotOfAs += "a"
+}
+print(aLotOfAs)
+print(aLotOfAs.count)
+
+
+// Challenge 3: What will print
+
+
+//let coordinates3 = (1, 5, 0)
+//let coordinates3 = (2, 2, 2)
+//let coordinates3 = (3, 0, 1)
+//let coordinates3 = (3, 2, 5)
+let coordinates3 = (0, 2, 4)
+
+switch coordinates3 {
+case let (x, y, z) where x == y && y == z:
+    print("x = y = z")
+case (_, _, 0):
+    print("On the x/y plane")
+case (_, 0, _):
+    print("On the x/z plane")
+case (0, _, _):
+    print("On the y/z plane")
+default:
+    print("Nothing special")
+}
+
+
+// Challenge 4: Closed range size
+
+// A closed range can never be empty. Why?
+// 1...3 it includes at least starting and ending number
+
+let a = 100..<100 // empty
+let b = 100...100   // contains the number 100
+
+a.isEmpty
+b.isEmpty
+
+// Challenge 5: The final countdown
+
+var down = 10
+
+for _ in 0...10 {
+    print("The number is \(down)")
+    down -= 1
+}
+
+var down1 = 10
+
+while down1 >= 0{
+    print("the number is \(down1)")
+    down1 -= 1
+}
+
+for i in 0...10{
+    print(10 - i)
+}
+
+// Challenge 6: Print a sequence
+
+var number6 = 0.0
+
+while number6 <= 1.1 {
+    print(number6)
+    number6 += 0.1
+}
+
+
+for _ in 0...10 {
+    print(number6)
+    number6 += 0.1
+}
+
+for counter in 0...10 {
+    print(Double(counter) * 0.1)
+}
+
