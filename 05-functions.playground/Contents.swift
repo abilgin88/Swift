@@ -158,3 +158,61 @@ func calculateFullName2(_ firstName:String, _ lastName:String)
 }
 
 let fullNameLength = calculateFullName2("Abdullah", "Bilgin").lenght
+
+//: Functions as variables
+func add(_ a: Int, _ b: Int) -> Int {
+    a + b
+}
+
+var function = add
+function(2,4)
+
+func subtract(_ a:Int, _ b: Int) -> Int {
+    a - b
+}
+
+function = subtract
+function(4,2)
+
+func printResult(_ function: (Int, Int) -> Int, _ a: Int, _ b:Int) {
+    let result = function(a, b)
+    print(result)
+}
+
+printResult(add, 4, 2)
+
+//: The land of no return
+func noReturn() -> Never{
+    while true {
+        
+    }
+}
+
+//: Writing good functions
+/*
+ Make functions that are easy to use and understand! Give them well-defined inputs that produce the same output every time. You’ll find it’s easier to reason about and test good, clean, simple functions in isolation.
+*/
+
+//:Commenting your functions
+/* It uses the defacto Doxygen commenting standard used by many other languages outside of Swift*/
+
+///  Calculate the average of three values
+///  - Parameters:
+///  - a: The first value.
+///  - b:    The second value.
+///  - c:    The third value.
+/// - Returns: The average of the three values.
+
+func calculateAverage(of a: Double, and b: Double, and c: Double)
+-> Double {
+    let total = a + b + c
+    let average = total / 3
+    return average
+}
+
+calculateAverage(of: 4, and: 5, and: 3)
+
+/* Xcode shows your documentation when code completion comes up,*/
+
+/* you can hold the option key and click on the function name, and Xcode shows your documentation in a handy popover*/
+
