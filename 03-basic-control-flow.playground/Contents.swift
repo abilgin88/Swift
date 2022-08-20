@@ -311,3 +311,24 @@ while i <= 12 {
     accumulator += 7
     i += 1
 }
+
+// Challenge 9: Dice roll table
+
+var target = 2
+while target <= 12 {
+    var combinationsFound = 0
+    var valueOnFirstDice = 1
+    while valueOnFirstDice <= 6 {
+        var valueOnSeconDice = 1
+        while valueOnSeconDice <= 6 {
+            if valueOnFirstDice +
+                valueOnSeconDice == target {
+                combinationsFound += 1
+            }
+            valueOnSeconDice += 1
+        }
+                valueOnFirstDice += 1
+    }
+    print("\(target):\t\(combinationsFound)")
+    target += 1
+}
