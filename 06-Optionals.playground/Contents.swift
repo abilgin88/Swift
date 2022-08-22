@@ -166,3 +166,21 @@ func maybePrintSides2(shape: String) {
 maybePrintSides(shape: "Hexagon")
 maybePrintSides(shape: "sa")
 
+//:Nil coalescing
+var optionalInt: Int? = 10
+var mustHaveResult = optionalInt ?? 0
+optionalInt = nil
+mustHaveResult = optionalInt ?? 0
+
+
+var optionalInt1: Int? = 10
+var mustHaveResult1: Int
+if let unwrapped = optionalInt1 {
+    mustHaveResult1 = unwrapped
+} else {
+    mustHaveResult1 = 0
+}
+
+optionalInt1 = nil
+mustHaveResult1 = optionalInt1 ?? 0
+
