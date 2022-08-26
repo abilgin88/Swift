@@ -24,7 +24,7 @@ print(currentPlayer as Any)
 
 print(players.last as Any)
 
-print(players.min())
+//print(players.min())
 
 currentPlayer = players.min()
 print(currentPlayer as Any)
@@ -193,4 +193,49 @@ someSet
 let removedElement = someSet.remove(1)
 print(removedElement!)
 
+let array1 = [Int]()
+// let array2 = []
+let array3: [String] = []
+let array4 = [1, 2, 3]
+print(array4[0])
+// print(array4[5])
+array4[1...2]
+//array4[0] = 4
+//array4.append(4)
+
+var array5 = [1, 2, 3]
+array5[0] = array5[1]
+array5
+array5[0...1]
+// array5[0] = "Six"
+//array5 += 6
+array5 += [6]
+for item in array5 {
+    print(item)
+}
+
+var array9 = [1, 2, 3, 4, 4, 5]
+
+func removingOnce(_ item: Int, from array: [Int]) -> [Int] {
+    var result = array
+    if let index = array.firstIndex(of: item){
+        result.remove(at: index)
+        
+    }
+    return result
+}
+
+removingOnce(4, from: array9)
+
+
+var array7 = [1, 2, 3, 4, 4, 5]
+func removing(_ item: Int, from array: [Int]) -> [Int] {
+    var result = array
+    if let index = array.endIndex{
+    result.remove(at: index)
+    }
+    return result
+}
+
+removing(4, from: array7)
 
