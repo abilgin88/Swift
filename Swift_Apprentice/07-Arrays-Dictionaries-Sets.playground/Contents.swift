@@ -227,15 +227,46 @@ func removingOnce(_ item: Int, from array: [Int]) -> [Int] {
 
 removingOnce(4, from: array9)
 
+// my solution
+var array10 = [1, 2, 3, 4, 4, 5]
 
-var array7 = [1, 2, 3, 4, 4, 5]
 func removing(_ item: Int, from array: [Int]) -> [Int] {
     var result = array
-    if let index = array.endIndex{
-    result.remove(at: index)
+    for _ in 0...result.count{
+        if let index = result.firstIndex(of: item){
+            result.remove(at: index)
+        }
+        
     }
     return result
 }
 
-removing(4, from: array7)
+removing(4, from: array10)
 
+// book solution:
+
+var array11 = [1, 2, 3, 4, 4, 5]
+func removing2(_ item: Int, from array: [Int]) -> [Int] {
+  var newArray: [Int] = []
+  for candidateItem in array {
+    if candidateItem != item {
+      newArray.append(candidateItem)
+    }
+  }
+  return newArray
+}
+removing2(4, from: array11)
+
+
+//: challenge-4
+var array12 = [1, 2, 3, 4, 4, 5]
+
+func reversed(_ array: [Int]) -> [Int] {
+    var reservedArray: [Int] = []
+    for i in array{
+        reservedArray.append(i)
+    }
+    return reservedArray
+}
+
+reversed(array12)
