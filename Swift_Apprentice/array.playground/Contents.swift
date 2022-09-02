@@ -233,3 +233,90 @@ if elements.contains(5) {
     print("Do something")
 }
 
+//:
+var names5 = ["Gregory", "Perry", "Nadal"]
+var result5 = names5.contains("Nadal")
+result5 = names5.contains("Federe")
+//:
+var names6 = ["Gregory", "Perry", "Nadal"]
+var name1 = "Gregory"
+var name2 = "gregory"
+if (names6.contains(name1)) {
+    print("Array contains", name1)
+} else {
+    print("Array doesn't contain", name1)
+}
+
+// contains() is case-sensitive
+if (names6.contains(name2)) {
+    print("Array contains", name2)
+} else {
+    print("Array doesn't contains", name2)
+}
+//:
+let array9 = ["Apples", "Peaches", "Plums"]
+if array9.contains("Apples") {
+    print("We've got apples")
+} else {
+    print("No Apples here - sorry!")
+}
+//:
+var swiftArray: [String] = ["swift4", "Java", "MySQL", "Web", "Data"]
+print("Actual Array - \(swiftArray)")
+var swiftSet: Set = ["swift4","Java","MySQL","Web","Data"]
+print("Actual Set - \(swiftSet)")
+print("Does Web exist in swiftArray? - ", swiftArray.contains("Web"))
+print("Does Web exist in swiftSet? - ", swiftSet.contains("Web"))
+
+// ask userName and calculate
+
+var userName = ["Abdullah", "Nurdan"]
+
+func calculate(firstNumber: Int, secondNumber:Int, name9:String) -> Int {
+    userName.contains(name9) ? firstNumber + secondNumber : 0
+}
+calculate(firstNumber: 5, secondNumber: 6, name9: "Abdullah")
+//:
+let birthdays: [String: String] = [
+    "Emma": "12/12/1985",
+    "James": "11/07/1980",
+    "Cathy": "07/09/1990",
+    "Mike": "05/01/2000",
+    "Lucy": "11/03/1972"
+]
+birthdays.keys.contains("Emma")
+//:
+birthdays.keys.contains { key -> Bool in
+    key == "Emma"
+}
+birthdays.keys.contains { $0 == "Emma" }
+//:
+enum Animal {
+    case dog
+    case cat
+}
+
+let animals: [Animal] = [.dog, .dog]
+let hasCat = animals.contains(.cat)
+//:
+enum Animal1 {
+    case dog(String)
+    case cat(String)
+}
+
+let animals1: [Animal1] = [.dog("Growlithe"), .dog("Rockruff")]
+// let hasCat1 = animals1.contains(.cat("Meowth"))
+
+//instead
+let hasCat1 = animals1.contains { animals1 in
+    if case .cat = animals1 {
+        return true
+    }
+    return false
+}
+//:
+let array7 = [2, 5, 6, 7, 19, 40]
+array7.contains { (elements) -> Bool in
+    elements % 7 == 0
+}
+
