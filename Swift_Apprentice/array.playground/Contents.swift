@@ -215,3 +215,21 @@ print(upcomingPlayersSlice[1], upcomingPlayersSlice[2])
 let upcomingPlayersArray = Array(players[1...2])
 print(upcomingPlayersArray[0], upcomingPlayersArray[1])
 
+//:Checking for an element
+func isEliminates(player: String) -> Bool {
+    !players.contains(player)
+}
+
+print(isEliminates(player: "Bob"))
+
+players[1...3].contains("Bob")
+
+let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+print(cast.contains("Marlon"))
+print(cast.contains("James"))
+
+var elements = [1, 2, 3, 4, 5, 6]
+if elements.contains(5) {
+    print("Do something")
+}
+
