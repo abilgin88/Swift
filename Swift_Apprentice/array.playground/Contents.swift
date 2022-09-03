@@ -478,3 +478,17 @@ if arry44.contains(1) {
 //:
 print(players)
 let indexOfDan = players.firstIndex(of: "Dan")
+
+//:Updating elements
+print(players)
+players[4] = "Franklin"
+print(players)
+//:
+players[0...1] = ["Donna", "Craig", "Brian", "Anna"]
+print(players)
+//:
+var fruits55 = ["apple", "banana", "cherry", "mango"]
+if let i55 = fruits55.firstIndex(of: "cherry") {
+    fruits55[i55] = "guava"
+}
+print(fruits55)
