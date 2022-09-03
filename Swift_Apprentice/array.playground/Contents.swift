@@ -388,4 +388,93 @@ prime.insert(11, at: 4)
 var even = [4, 6, 8]
 even.insert(2, at: even.startIndex)
 even.insert(10, at: even.endIndex)
+//:Removing elements
+var removedPlayer = players.removeLast()
+removedPlayer = players.remove(at: 2)
+print("\(removedPlayer) was removed")
+//:
+var ingredients: Set = ["cocoa beans", "sugar", "cocoa butter", "salt"]
+let toRemove = "sugar"
+if let removed = ingredients.remove(toRemove) {
+    print("The recipe is now \(removed) - free")
+}
+//:
+var nonempty = "non-empty"
+if let i = nonempty.firstIndex(of: "-") {
+    nonempty.remove(at: i)
+}
+print(nonempty)
+//:
+var animals88 = ["cats", "dogs", "chimps", "moose"]
+animals88.remove(at: 2)
+animals88.removeFirst()
+animals88.removeLast()
+//:
+//Remove element of unknown index
+if let index = animals88.firstIndex(of: "dogs") {
+    animals88.remove(at: index)
+}
 
+var animals99 = ["cats", "dogs", "chimps", "moose", "chimps"]
+animals99 = animals99.filter(){$0 != "chimps"}
+print(animals99)
+//:
+var prime77 = [2, 3, 5, 7, 9, 11]
+prime77.remove(at: 4)
+//:
+var languages88 = ["Swift", "C", "Objective-C"]
+var removed = languages88.remove(at: 2)
+//:
+// string remove()
+var greeting88 = "Good-Morning"
+var i = greeting88.index(greeting88.startIndex, offsetBy: 4)
+greeting88.remove(at: i)
+//:
+var message = "Hello, World!"
+var i1 = message.index(message.startIndex, offsetBy: 12)
+var removed1 = message.remove(at: i1)
+//:
+var numbers66:[Int] = [2, 3, 5, 7, 11, 13, 17]
+numbers66.remove(at: 3)
+numbers66.forEach { number in
+    print("\(numbers66)")
+}
+
+// dropLast
+let fruits66 = ["Apple","Orange","Banana"]
+let nonRoundFruits = fruits66.dropLast()
+print(fruits66)
+
+// removeLast()
+var fruits77 = ["Apple","Orange","Banana"]
+let removedFruit = fruits77.removeLast()
+print(fruits77)
+/*The fruits array is mutable and hence it is declared as a ‘var’ If there are no elements in the array and if removeLast() method is invoked, the app will crash.*/
+
+// popLAst()
+var fruits88 = ["Apple","Orange","Banana"]
+let removedFruits88 = fruits88.popLast()
+print(fruits88)
+/* there are no elements in an array, and if the popLast() method is invoked, the app will not crash. Instead, it will return a nil value.*/
+//:
+var arrayOfString = ["a","b","c","f"]
+let modifiedArray = arrayOfString.filter { $0 != "f"}
+print(modifiedArray)
+//:
+if arrayOfString.contains("c") {
+    let index = arrayOfString.firstIndex(of: "c")
+    arrayOfString.remove(at: index!)
+    print(arrayOfString)
+}
+//:
+var arry44 = [1,2,6,44]
+let modifiedArray44 = arry44.filter { $0 != 6 }
+print(modifiedArray44)
+if arry44.contains(1) {
+    let index = arry44.firstIndex(of: 1)
+    arry44.remove(at: index!)
+    print(arry44)
+}
+//:
+print(players)
+let indexOfDan = players.firstIndex(of: "Dan")
