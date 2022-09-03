@@ -320,3 +320,46 @@ array7.contains { (elements) -> Bool in
     elements % 7 == 0
 }
 
+//: Modifying arrays
+//:Appending elements
+players.append("Eli")
+players += ["Gina"]
+print(players)
+//:
+var numbers = [1, 2, 3, 4, 5]
+numbers.append(100)
+//:
+var city =  ["Boston", "Tokyo", "Kathmandu"]
+city.append("London")
+print(city)
+//:
+var languages7 = ["Swift", "C", "Java"]
+languages7.append("C++")
+print(languages7)
+
+var priceList = [12, 21, 35]
+priceList.append(44)
+//:
+var animals7 = ["cat", "dog"]
+var wildAnimals = ["tiger", "fox"]
+animals7.append(contentsOf: wildAnimals)
+print(animals7)
+//:
+var myArray = ["Steve", "Bill", "Linus", "Bret"]
+myArray.append("Abdullah")
+myArray += ["Ahmet", "Orhan"]
+var str1:String = "John"
+var str2:String = "Bob"
+myArray.append(str1)
+myArray.append(str2)
+//:
+var first = ["Abdullah", "Bilgin"]
+let second = ["Nurdan", "Orhan"]
+first.append(contentsOf: second)
+
+first += second
+let third = first + second
+//:
+var nums = [1, 2, 3]
+nums.append(4)
+nums.append(contentsOf: 5...10)
