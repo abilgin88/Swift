@@ -363,3 +363,5 @@ let third = first + second
 var nums = [1, 2, 3]
 nums.append(4)
 nums.append(contentsOf: 5...10)
+//:Inserting elements
+players.insert("Frank", at: 5)
