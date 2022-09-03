@@ -365,3 +365,27 @@ nums.append(4)
 nums.append(contentsOf: 5...10)
 //:Inserting elements
 players.insert("Frank", at: 5)
+//:
+var str11 = "spresso"
+var str22 = "Swif"
+str11.insert("E", at: str11.startIndex)
+str22.insert("t", at: str22.endIndex)
+//:
+var fruit = ["apple", "banana", "cherry", "mango"]
+var anotherFruit = "guava"
+var index = 2
+fruit.insert(anotherFruit, at: index)
+//:
+var array33 = ["word"]
+array33.insert("hello", at: 0)
+//:
+var vowel = ["a", "e", "i", "u"]
+vowel.insert("o", at: 3)
+//:
+var prime = [2, 3, 5, 7]
+prime.insert(11, at: 4)
+//:
+var even = [4, 6, 8]
+even.insert(2, at: even.startIndex)
+even.insert(10, at: even.endIndex)
+
