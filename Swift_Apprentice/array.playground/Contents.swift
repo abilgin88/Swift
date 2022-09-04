@@ -492,3 +492,23 @@ if let i55 = fruits55.firstIndex(of: "cherry") {
     fruits55[i55] = "guava"
 }
 print(fruits55)
+//:Moving Elements
+let playerAnna = players.remove(at: 3)
+players.insert(playerAnna, at: 0)
+//:
+players.swapAt(1, 3)
+print(players)
+//:
+players.sort()
+//:
+/*If you’d like to leave the original array untouched and return a sorted copy instead, use sorted() instead of sort().*/
+players.sorted()
+//:
+var number44 = [2, 6, 4, 8]
+number44.swapAt(1, 2)
+//:
+var languages44 = ["Swift", "C", "Java"]
+languages44.swapAt(1, 2)
+//:
+var priceList44 = [12, 21, 35]
+priceList44.swapAt(0, 2)
