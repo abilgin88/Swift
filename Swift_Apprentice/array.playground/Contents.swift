@@ -1,4 +1,5 @@
 import UIKit
+import Darwin
 
 //: Creating arrays
 let array = [1, 2, 3, 4, 5]
@@ -512,3 +513,173 @@ languages44.swapAt(1, 2)
 //:
 var priceList44 = [12, 21, 35]
 priceList44.swapAt(0, 2)
+//:
+//:Iterating through an array
+let score44 = [2, 2, 8, 6, 1, 2, 1]
+for player in players {
+    print(player)
+}
+//:
+for (index, player) in players.enumerated() {
+    print("\(index + 1). \(player)")
+}
+//:
+func sumOfElements(in array: [Int]) -> Int {
+    var sum = 0
+    for number in array {
+        sum += number
+    }
+    return sum
+}
+print(sumOfElements(in: score44))
+//:
+//func playerScore(score:[Int], players:[String]) -> String {
+//    var result = ""
+//    for(score, player) in playerScore(score: score, players: players){
+//        result = "\(player): \(score)"
+//    }
+//    return result
+//}
+//
+//playerScore(score: score44, players: players)
+
+print(players)
+print(score44)
+
+
+for (index, player) in players.enumerated() {
+    print("\(player) :\(score44[index])")
+}
+
+var positionOfDan = players.firstIndex(of: "Dan")
+var languages55 = ["Swift", "C", "Java"]
+var dizi1 = [Int]()
+var disi2 = [Int](repeating: 5, count: 7)
+//:
+var meyveler: [String] = ["Cilek", "Muz", "Elma", "Kivi", "Kiraz"]
+meyveler.append("Karpuz")
+meyveler += ["Mandalina"]
+meyveler[2] = "Ananas"
+print(meyveler)
+meyveler.insert("Portakal", at: 3)
+meyveler.isEmpty
+meyveler.count
+meyveler.first
+meyveler.last
+meyveler.contains("Kiraz")
+meyveler.max()
+meyveler.min()
+meyveler.reverse()
+meyveler.sort()
+meyveler.remove(at: 2)
+meyveler.removeFirst()
+meyveler.removeLast()
+meyveler.removeAll()
+//:Array Filter
+var sayilar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var sonuc1 = sayilar.filter({ $0 > 7 })
+print(sonuc1)
+var sonuc2 = sayilar.filter({ $0 < 7 })
+print(sonuc2)
+var sonuc3 = sayilar.filter({ $0 > 3 && $0 < 7 })
+print(sonuc3)
+//:Array iterating
+var meyveler2: [String] = ["Cilek", "Muz", "Elma", "Kivi", "Kiraz"]
+for meyve in meyveler2 {
+    print("Sonuc: \(meyve)")
+}
+//:
+for (index, meyve) in meyveler2.enumerated() {
+    print("Sonuc \(index) : \(meyve)")
+}
+//:Array Nesne Tabanli
+class ogrenci {
+    var no: Int?
+    var ad: String?
+    var sinif: String?
+    
+    init (no:Int, ad: String, sinif: String) {
+        self.no = no
+        self.ad = ad
+        self.sinif = sinif
+    }
+}
+var o1 = ogrenci(no: 100, ad: "Ahmet", sinif: "11F")
+var o2 = ogrenci(no: 90, ad: "Zeynep", sinif: "10R")
+var o3 = ogrenci(no: 130, ad: "Ceyda", sinif: "12A")
+var o4 = ogrenci(no: 150, ad: "Mehmet", sinif: "9Z")
+var o5 = ogrenci(no: 110, ad: "Yasin", sinif: "11F")
+
+var ogrenciLisresi = [ogrenci]()
+
+ogrenciLisresi.append(o1)
+ogrenciLisresi.append(o2)
+ogrenciLisresi.append(o3)
+ogrenciLisresi.append(o4)
+ogrenciLisresi.append(o5)
+print(ogrenciLisresi[0].ad!)
+print(ogrenciLisresi[4].sinif!)
+print(ogrenciLisresi[3].no!)
+print(ogrenciLisresi[1].no!, ogrenciLisresi[1].ad!, ogrenciLisresi[1].sinif!)
+print(ogrenciLisresi[1].ad as Any)
+
+for ogrenci in ogrenciLisresi {
+    print("\n**************")
+    print("Ogrenci No   \(ogrenci.no!)")
+    print("ogrenci Ad   \(ogrenci.ad!)")
+    print("Ogrenci Sinif \(ogrenci.sinif!)")
+}
+//:
+class Kisiler {
+    var kisiNo: Int?
+    var kisiAd: String?
+    
+    init(kisiNo: Int, kisiAd: String) {
+        self.kisiNo = kisiNo
+        self.kisiAd = kisiAd
+    }
+}
+
+let kisi1 = Kisiler(kisiNo: 1, kisiAd: "Abdullah")
+let kisi2 = Kisiler(kisiNo: 2, kisiAd: "Orhan")
+let kisi3 = Kisiler(kisiNo: 3, kisiAd: "Nurdan")
+
+var kisilerArray = [Kisiler]()
+
+kisilerArray.append(kisi1)
+kisilerArray.append(kisi2)
+kisilerArray.append(kisi3)
+
+print("\nonce\n")
+for k in kisilerArray {
+    print("\(k.kisiNo!) - \(k.kisiAd!)")
+}
+
+print("\nSayisal Buyukten kucuge\n")
+let siralmaArray1 = kisilerArray.sorted(by: {$0.kisiNo! < $1.kisiNo!})
+for k in siralmaArray1 {
+    print("\(k.kisiNo!) - \(k.kisiAd!)")
+}
+
+print("\nSayisal kucukten buyuge\n")
+let siralmaArray2 = kisilerArray.sorted(by: {$0.kisiNo! > $1.kisiNo!})
+for k in siralmaArray2 {
+    print("\(k.kisiNo!) - \(k.kisiAd!)")
+}
+
+print("\nHarf Kucukten Buyuge\n")
+let siralamaArray3 = kisilerArray.sorted(by: {$0.kisiAd! < $1.kisiAd!})
+for k in siralamaArray3 {
+    print("\(k.kisiNo!) - \(k.kisiAd!)")
+}
+
+
+
+
+
+
+
+
+// a func for take index and remove it -> firstIndex(of:) and remove(at:)
+
+
