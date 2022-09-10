@@ -672,14 +672,9 @@ let siralamaArray3 = kisilerArray.sorted(by: {$0.kisiAd! < $1.kisiAd!})
 for k in siralamaArray3 {
     print("\(k.kisiNo!) - \(k.kisiAd!)")
 }
-
-
-
-
-
-
-
-
-// a func for take index and remove it -> firstIndex(of:) and remove(at:)
-
+//: a func for take index and remove it -> firstIndex(of:) and remove(at:)
+var newArray = ["Abdullah", "Nurdan", "Orhan"]
+newArray.firstIndex(of: "Orhan")
+newArray.remove(at: 2)
+print(newArray)
 
