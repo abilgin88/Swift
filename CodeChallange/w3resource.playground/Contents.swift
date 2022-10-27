@@ -1,6 +1,8 @@
 import UIKit
 import Foundation
 //:1. Write a Swift program to compute the sum of the two integers. If the values are equal return the triple their sum.
+//:
+//:My solution:
 func sumOfTwo(number1: Int, number2: Int) -> Int {
     var sum:Int
     if number1 == number2 {
@@ -13,6 +15,7 @@ func sumOfTwo(number1: Int, number2: Int) -> Int {
 sumOfTwo(number1: 2, number2: 4)
 sumOfTwo(number1: 4, number2: 4)
 //:
+//:w3resource Solution:
 func triple_sum(a: Int, b: Int) -> Int {
     if a == b {
         return (a + b) * 3
@@ -23,7 +26,16 @@ func triple_sum(a: Int, b: Int) -> Int {
 print(triple_sum(a: 1, b: 2))
 print(triple_sum(a: 3, b: 2))
 print(triple_sum(a: 2, b: 2))
+
+//: improve Solution:
+var sumOfTwo1 = {(a: Int, b: Int) in
+    (a == b) ? ((a + b) * 3) : (a + b)
+}
+sumOfTwo1(1, 2)
+sumOfTwo1(3, 2)
+sumOfTwo1(2, 2)
 //:2. Write a Swift program to compute and return the absolute difference of n and 51, if n is over 51 return double the absolute difference
+//:My solution:
 func absoluteDiff(n number1: Int) -> Int {
     if number1 > 51 {
         return (number1 - 51) * 2
@@ -46,6 +58,7 @@ print(diff_51(x: 45))
 print(diff_51(x: 61))
 print(diff_51(x: 21))
 //:3. Write a Swift program that accept two integer values and return true if one of them is 20 or if their sum is 20
+//:My solution:
 func twenty(number1: Int, number2: Int) -> Bool {
     if number1 == 20 || number2 == 20 || (number1 + number2) == 20 {
         return true
@@ -57,6 +70,7 @@ twenty(number1: 29, number2: 10)
 twenty(number1: 20, number2: 17)
 twenty(number1: 11, number2: 9)
 //:4. Write a Swift program to accept two integer values and return true if one is negative and one is positive. Return true only if both are negative
+//:
 func isNagPos(num1: Int, num2: Int) -> Bool {
     if num1 < 0 && num2 < 0 {
         return true
@@ -456,6 +470,7 @@ case_str("Hello there")
 case_str("Is")
 case_str("Python")
 //: 20. Write a Swift program to check if the first instance of "a" in a given string is immediately followed by another "a".
+//:
 func followedChar(_ str: String) -> Bool {
     for i in str {
         if i == "a" {
