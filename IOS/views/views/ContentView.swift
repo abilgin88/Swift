@@ -13,9 +13,15 @@ struct ContentView: View {
             Color.cyan
                 .ignoresSafeArea()
             HStack{
+                
                 VStack{
-                    Color.brown
-                        .frame(width: 100, height: 100)
+                    ZStack{
+                        Color.brown
+                            .frame(width: 100, height: 100)
+                        Text("1")
+                            .font(.title)
+                    }
+                    
                     Color.brown
                         .frame(width: 100, height: 100)
                     Color.brown
