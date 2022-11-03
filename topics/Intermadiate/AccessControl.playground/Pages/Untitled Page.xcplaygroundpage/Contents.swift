@@ -81,3 +81,56 @@ alphaOffice.paperclipCost
 //let incalidAccess = alphaOffice.paperclipSales
 
 // 'paperclipSales' is inaccessible due to 'private' protection level
+//:Defining a Private Method
+struct WizardCat {
+    func secretSpell() -> String{
+        "Abracadabra"
+    }
+}
+var noPrivateCat = WizardCat()
+noPrivateCat.secretSpell()
+
+struct WizartCat1 {
+    private func secretSpell() -> String {
+        "Abracadabra"
+    }
+}
+var privateCat = WizartCat1()
+// privateCat.secretSpell()
+// 'secretSpell' is inaccessible due to 'private' protection level
+
+struct Office1 {
+    let paperclipCost = 10
+    private var paperclipSales: Int
+    
+    // no default and private need to have init
+    init(paperclipSales: Int) {
+        self.paperclipSales = paperclipSales
+    }
+    
+    // Create a private method
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    
+    // no need mutating here because it does not change any value
+    func printTotalRevenue() {
+        
+        //Add the secret revenue to totalRevenue
+        
+        let totalRevenue = (paperclipSales *
+        paperclipCost) + getSecretRevenue()
+        print("Our total revenue this month is \(totalRevenue).")
+    }
+          
+          
+}
+
+let alphaOffice2 = Office1(paperclipSales: 18)
+
+alphaOffice2.paperclipCost
+//alphaOffice2.paperclipSales
+alphaOffice2.printTotalRevenue()
+// Attempt to call the private method
+//alphaOffice2.getSecretRevenue()
+
