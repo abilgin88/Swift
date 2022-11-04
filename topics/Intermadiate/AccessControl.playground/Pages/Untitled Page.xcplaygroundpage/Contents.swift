@@ -155,6 +155,7 @@ struct Cat3 {
 /* A read-only computed property can be handy in cases where you want to safely give read access to some property but want to be sure it can’t be modified. */
 
 let c = Cat3(numberOfLives: 10)
+//print(c.numberOfLives)
 print(c.doubledLife)
 //:
 struct Office3 {
@@ -169,6 +170,7 @@ struct Office3 {
         }
     }
     
+    // there is private variable need init
     init(paperclipSales: Int) {
         self.paperclipSales = paperclipSales
     }
@@ -184,3 +186,104 @@ struct Office3 {
 
 let alphaOffice3 = Office3(paperclipSales: 18)
 print(alphaOffice3.totalRevenue)
+//: Creating Setters for Computed Properties
+struct Cat4 {
+    
+    private var numberOfLives: Int
+    
+    init(numberOfLives: Int) {
+        self.numberOfLives = numberOfLives
+    }
+    
+    var doubledLife: Int {
+        get {
+            return numberOfLives * 2
+        }
+        set(newDoubledLife) {
+            numberOfLives = newDoubledLife / 2
+        }
+    }
+}
+
+var setTest = Cat4(numberOfLives: 10)
+setTest.doubledLife
+setTest.doubledLife = 30
+print(setTest.doubledLife)// means by set change
+// try to without set?
+//Result: Cannot assign to property: 'doubledLife' is a get-only property
+//:
+// shorthand Form-1: remove "return" for get
+struct Cat5 {
+    private var numberOfLives: Int
+    
+    init(numberOfLives: Int){
+        self.numberOfLives = numberOfLives
+    }
+    
+    var doubledLife: Int {
+        get {
+            numberOfLives * 2
+        }
+        set(newDoubledLife) {
+            numberOfLives = newDoubledLife / 2
+        }
+    }
+}
+// shorthand Form-2:  omit the passed parameter on the setter and use the default newValue that is provided to us:
+struct Cat6 {
+    private var numberOfLives: Int
+    
+    init(numberOfLives: Int){
+        self.numberOfLives = numberOfLives
+    }
+    
+    var doubledLife: Int {
+        get {
+            numberOfLives * 2
+        }
+        set {
+            numberOfLives = newValue / 2
+        }
+    }
+}
+
+var shorthand = Cat6(numberOfLives: 15)
+print(shorthand.doubledLife)
+shorthand.doubledLife = 40
+print(shorthand.doubledLife)
+//:Example
+struct Office4 {
+    let paperclipCost = 10
+    private var paperclipSales: Int
+    
+    var totalRevenue: Int {
+        get {
+            (paperclipCost * paperclipSales) + getSecretRevenue()
+        }
+        set {
+            paperclipSales = (newValue - getSecretRevenue()) / paperclipCost
+        }
+    }
+    
+    
+    
+    init(paperclipSales: Int) {
+        self.paperclipSales = paperclipSales
+    }
+    
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+}
+
+var alphaOffice4 = Office4(paperclipSales: 18)
+alphaOffice4.totalRevenue
+alphaOffice4.printTotalRevenue()
+//alphaOffice4.totalRevenue = 100 (before add get-set)
+//Cannot assign to property: 'totalRevenue' is a get-only property
+alphaOffice4.totalRevenue = 100
+alphaOffice4.printTotalRevenue()
