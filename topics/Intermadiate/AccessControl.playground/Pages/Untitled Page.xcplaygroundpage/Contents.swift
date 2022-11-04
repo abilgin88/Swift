@@ -134,3 +134,53 @@ alphaOffice2.printTotalRevenue()
 // Attempt to call the private method
 //alphaOffice2.getSecretRevenue()
 
+//:Using Read-only Computed Properties
+struct Cat3 {
+    private var numberOfLives: Int
+    
+    init(numberOfLives: Int) {
+        self.numberOfLives = numberOfLives
+    }
+    
+    // declare doubledLife as an Int type.
+    var doubledLife: Int {
+        //The get keyword defines the getter.
+        get {
+            //The return keyword ends the scope of the getter and returns a final value.
+            return numberOfLives * 2
+        }
+    }
+}
+
+/* A read-only computed property can be handy in cases where you want to safely give read access to some property but want to be sure it can’t be modified. */
+
+let c = Cat3(numberOfLives: 10)
+print(c.doubledLife)
+//:
+struct Office3 {
+    
+    let paperclipCost = 10
+    private var paperclipSales: Int
+    
+    // create a Read-only Computed Property below
+    var totalRevenue: Int {
+        get {
+            return (paperclipCost * paperclipSales) + getSecretRevenue()
+        }
+    }
+    
+    init(paperclipSales: Int) {
+        self.paperclipSales = paperclipSales
+    }
+    
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+}
+
+let alphaOffice3 = Office3(paperclipSales: 18)
+print(alphaOffice3.totalRevenue)
