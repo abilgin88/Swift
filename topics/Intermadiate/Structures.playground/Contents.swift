@@ -176,3 +176,37 @@ struct Band {
 }
 
 var maroon5 = Band(genre: "pop", members: 5, isActive: true)
+//:Structure Methods
+struct Dog7 {
+    func bark() {
+        print("Woof")
+    }
+}
+
+let fido = Dog7()
+fido.bark()
+// using dot syntax and a pair of parentheses => to call
+//:
+struct Band2 {
+    var genre: String
+    var members: Int
+    var isActive: Bool
+    
+    init(genre: String, members: Int, isActive: Bool) {
+        self.genre = genre
+        self.members = members
+        self.isActive = isActive
+    }
+    
+    // Add the method
+    func pumpUpCrowd() -> String {
+        if self.isActive && self.isActive {
+            return "Are you ready to ROCK?"
+        } else {
+            return ""
+        }
+    }
+}
+// create instance
+var fooFighters = Band2(genre: "rock", members: 6, isActive: true)
+print(fooFighters.pumpUpCrowd())
