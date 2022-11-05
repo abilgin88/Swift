@@ -113,3 +113,44 @@ myFavBook4.pages = 640
 print(myFavBook4.title)
 myFavBook4.title = "Gandhi"
 print(myFavBook4.title)
+//: The Init Method
+
+struct Dog5 {
+    var age: Int
+    var isGood: Bool
+    
+    init(age: Int, isGood: Bool) {
+        self.age = age
+        self.isGood = isGood
+    }
+}
+
+// Using init() Method:
+var bucket5 = Dog5(age: 4, isGood: true)
+print(bucket5.age)
+print(bucket5.isGood)
+//:
+struct Book5 {
+    var title: String
+    var pages: Int
+    
+    init(title: String, pages: Int) {
+        self.title = title
+        self.pages = pages
+    }
+}
+
+var theHobbit = Book5(title: "The Hobbit", pages: 300)
+print(theHobbit.title)
+//:
+struct TV {
+    var screenSize: Int
+    var displayType: String
+    
+    init(screenSize: Int, displayType: String) {
+        self.screenSize = screenSize
+        self.displayType = displayType
+    }
+}
+
+var newTV = TV(screenSize: 65, displayType: "LED")
