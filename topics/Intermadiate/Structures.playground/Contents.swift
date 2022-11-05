@@ -187,6 +187,22 @@ let fido = Dog7()
 fido.bark()
 // using dot syntax and a pair of parentheses => to call
 //:
+struct Dog8 {
+    var age: Int
+    var isGood: Bool
+    
+    init(age: Int, isGood: Bool) {
+        self.age = age
+        self.isGood = isGood
+    }
+    // We've added a bark() method
+    func bark() {
+        print("Woof")
+    }
+}
+var bucket8 = Dog8(age: 4, isGood: true)
+bucket8.bark()
+//:
 struct Band2 {
     var genre: String
     var members: Int
