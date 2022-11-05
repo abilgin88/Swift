@@ -154,3 +154,25 @@ struct TV {
 }
 
 var newTV = TV(screenSize: 65, displayType: "LED")
+//:Memberwise Initialization
+// to assign values upon instance creation.
+struct Dog6 {
+    var age: Int
+    var isGood: Bool
+}
+
+var eloise6 = Dog6(age: 5, isGood: true)
+/*
+ 1: there is no init but we still have to provide arguments for all the initial values.
+ 2: pass in arguments in the order that matches the structure
+ 3: without init (decreased readability) -> initializing instance
+ 4: do not need to manipulate the provided argument.
+ */
+
+struct Band {
+    var genre: String
+    var members: Int
+    var isActive: Bool
+}
+
+var maroon5 = Band(genre: "pop", members: 5, isActive: true)
