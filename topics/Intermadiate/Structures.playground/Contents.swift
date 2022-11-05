@@ -80,3 +80,36 @@ struct Person {
 
 // instance of Person
 var morty = Person(name: "Morty", age: 14)
+//:Accessing and Editing Properties
+// Syntax: instance.property
+
+// Modeled:
+struct Dog4 {
+    var age = 0
+    var isGood = true
+}
+
+// create instance:
+var bucket = Dog4()
+
+// print default properties:
+print(bucket.age)
+print(bucket.isGood)
+
+// reassign properties:
+bucket.age = 7
+bucket.isGood = false
+print(bucket.age, bucket.isGood)
+//:
+struct Book4 {
+    var pages = 0
+    var title = ""
+}
+var myFavBook4 = Book4()
+
+print(myFavBook4.pages)
+myFavBook4.pages = 640
+
+print(myFavBook4.title)
+myFavBook4.title = "Gandhi"
+print(myFavBook4.title)
