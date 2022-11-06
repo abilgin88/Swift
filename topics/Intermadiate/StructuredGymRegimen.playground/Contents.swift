@@ -30,3 +30,16 @@ var pushUp = Exercise(name: "Push up", muscleGroups: ["Triceps", "Chest", "Shoul
 var sitUps = Exercise(name: "Sit up", muscleGroups: ["Abdominis", "Chest", "Neck"], reps: 20, sets: 3)
 var squat = Exercise(name: "Squat", muscleGroups: ["Abdominis", "Chest", "Neck"], reps: 15, sets: 4)
 
+//: Creating The Regimen Structure
+struct Regimen {
+    var dayOfWeek: String
+    var exercises: [Exercise]
+    
+    init(dayOfWeek: String, exercises: [Exercise]) {
+        self.dayOfWeek = dayOfWeek
+        self.exercises = exercises
+    }
+}
+
+var mondayRegimen = Regimen(dayOfWeek: "Monday", exercises: [pushUp])
+print(mondayRegimen)
