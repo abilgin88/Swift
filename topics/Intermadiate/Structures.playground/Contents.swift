@@ -226,6 +226,69 @@ struct Band2 {
 // create instance
 var fooFighters = Band2(genre: "rock", members: 6, isActive: true)
 print(fooFighters.pumpUpCrowd())
+//:Mutating Methods
+struct Dog10 {
+    var age: Int
+    var isGood: Bool
+    
+    init(age: Int, isGood: Bool) {
+        self.age = age
+        self.isGood = isGood
+    }
+    
+    // birthday() is a mutating method
+    mutating func birthday() -> Int {
+        print("best doggy")
+        self.age += 1
+        return self.age
+    }
+}
+
+var bucket10 = Dog10(age: 7, isGood: true)
+var newAge = bucket10.birthday()
+//:
+struct Band10 {
+    var genre: String
+    var members: Int
+    var isActive: Bool
+    
+    init(genre: String, members: Int, isActive: Bool) {
+        self.genre = genre
+        self.members = members
+        self.isActive = isActive
+    }
+    
+    func pumpUpCrowd() -> String {
+        if self.isActive {
+            return "Are you ready to ROCK"
+        } else {
+            return "..."
+        }
+    }
+    
+    // Add mutating method
+    mutating func changeGenre(newGenre: String) -> String {
+        self.genre = newGenre
+        return self.genre
+    }
+}
+
+var journey10 = Band10(genre: "jazz", members: 5, isActive: true)
+
+//change the genre:
+var bandsNewGenre = journey10.changeGenre(newGenre: "rock")
+print(bandsNewGenre)
+//:
+struct Menu {
+    var menuItems = ["Fires", "Burgers"]
+    
+    mutating func addToMenu(dish: String) {
+        self.menuItems.append(dish)
+    }
+}
+var dinnerMenu = Menu()
+dinnerMenu.addToMenu(dish: "Toast")
+print(dinnerMenu.menuItems)
 //:New Type
 struct Dog9 {
     var age = 0
