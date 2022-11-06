@@ -25,3 +25,8 @@ struct Exercise {
         self.totalReps = reps * sets
     }
 }
+//:Adding Exercise Instances
+var pushUp = Exercise(name: "Push up", muscleGroups: ["Triceps", "Chest", "Shoulders"], reps: 10, sets: 3)
+var sitUps = Exercise(name: "Sit up", muscleGroups: ["Abdominis", "Chest", "Neck"], reps: 20, sets: 3)
+var squat = Exercise(name: "Squat", muscleGroups: ["Abdominis", "Chest", "Neck"], reps: 15, sets: 4)
+
