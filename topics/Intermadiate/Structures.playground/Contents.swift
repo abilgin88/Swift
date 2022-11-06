@@ -226,3 +226,51 @@ struct Band2 {
 // create instance
 var fooFighters = Band2(genre: "rock", members: 6, isActive: true)
 print(fooFighters.pumpUpCrowd())
+//:New Type
+struct Dog9 {
+    var age = 0
+    var isGood = true
+}
+var eloise9 = Dog9()
+
+// eloise9 is a Dog9 type:
+type(of: eloise9)
+
+var bucket9: Dog9 = Dog9()
+// we can also set an explicit type for our variables.
+
+struct Pets {
+    var petDog: Dog9
+    //var petCat: Cat
+}
+//:
+struct Band9 {
+    var genre: String
+    var numbers: Int
+    var isActive: Bool
+    
+    init(genre: String, numbers: Int, isActive: Bool) {
+        self.genre = genre
+        self.numbers = numbers
+        self.isActive = isActive
+    }
+    
+    func pumpUpCrowd() -> String {
+        if self.isActive {
+            return "Are you ready to ROCK?"
+        } else {
+            return ""
+        }
+    }
+    
+    mutating func changeGenre(newGenre: String) -> String {
+        self.genre = newGenre
+        return self.genre
+    }
+}
+
+var journey = Band9(genre: "rock", numbers: 5, isActive: true)
+print(type(of: journey))
+
+var bts: Band9 = Band9(genre: "kpop", numbers: 7, isActive: true)
+print(bts.genre)
