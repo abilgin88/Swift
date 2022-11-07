@@ -52,3 +52,12 @@ struct Regimen {
 
 var mondayRegimen = Regimen(dayOfWeek: "Monday", exercises: [pushUp])
 mondayRegimen.printExercisePlan()
+//:Additional Challenges
+/*
+ Create additional Exercise instances.
+ Create additional Regimen instances.
+ Add a mutating method to the Regimen structure to add exercises.
+ */
+
+var SundayRegimen = Regimen(dayOfWeek: "Sunday", exercises: [sitUps])
+SundayRegimen.printExercisePlan()
