@@ -253,3 +253,21 @@ order4.deliveryFee = 3.00
 order4.total = 19.69
 
 order4.printReceipt()
+//:Classes are Reference Types
+var krustyKrab = Restaurant()
+
+krustyKrab.name = "The Krusty Krab"
+krustyKrab.type = ["Seafood", "Burgers"]
+krustyKrab.rating = 2.4
+krustyKrab.delivery = true
+
+var krustyKrab2 = krustyKrab
+krustyKrab2.rating = 4.1
+
+print(krustyKrab.rating)
+print(krustyKrab2.rating)
+
+/*
+ Notice how that even though we are changing krustyKrab2‘s property, krustyKrab‘s property also changed. That’s why we have to be careful when changing the property values of a class instance.
+ */
+
