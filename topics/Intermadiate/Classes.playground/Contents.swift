@@ -178,3 +178,78 @@ class Order {
 class DeliveryOrder: Order {
     var deliveryFee = 2.0
 }
+//: Overriding Methods
+// Suppose we want a new SavingsAccount class and we want to override the .withdraw() method from its superclass BankAccount:
+
+
+class BankAccount2 {
+    var balance = 0.0
+    
+    func deposit(amount: Double) {
+        balance += amount
+    }
+    
+    func withdraw(amount: Double) {
+        balance -= amount
+    }
+}
+
+class SavingAccount2: BankAccount2 {
+    var interest  = 0.0
+    var numWithdraw = 0
+    
+    func addInterest() {
+        let interest = 0.0
+        self.deposit(amount: interest)
+    }
+    
+    override func withdraw(amount: Double) {
+        balance -= amount
+        numWithdraw += 1
+    }
+}
+var saveMyAccount2 = SavingAccount2()
+saveMyAccount2.withdraw(amount: 10)
+print(saveMyAccount2.numWithdraw)
+saveMyAccount2.numWithdraw = 10
+print(saveMyAccount2.interest)
+saveMyAccount2.withdraw(amount: 10)
+print(saveMyAccount2.numWithdraw)
+//:
+class Order3 {
+  var items = [""]
+  var subtotal = 0.0
+  var tip = 0.0
+  var total = 0.0
+
+  func printReceipt() {
+    print("Items:     \(items)")
+    print("Subtotal:  $\(subtotal)")
+    print("Tip:       $\(tip)")
+    print("Total:     $\(total)")
+  }
+}
+
+class DeliveryOrder3: Order3 {
+  var deliveryFee = 2.0
+  
+  // Write your code below 🧾
+  
+override func printReceipt() {
+    print("Items:     \(items)")
+    print("Subtotal:  $\(subtotal)")
+    print("Tip:       $\(tip)")
+    print("Delivery:  $\(deliveryFee)")
+    print("Total:     $\(total)")
+  }
+  
+}
+
+var order4 = DeliveryOrder3()
+order4.items = ["Ramen", "Diet Coke"]
+order4.subtotal = 14.69
+order4.tip = 2.00
+order4.deliveryFee = 3.00
+order4.total = 19.69
+
+order4.printReceipt()
