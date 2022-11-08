@@ -283,7 +283,85 @@ struct Office4 {
 var alphaOffice4 = Office4(paperclipSales: 18)
 alphaOffice4.totalRevenue
 alphaOffice4.printTotalRevenue()
-//alphaOffice4.totalRevenue = 100 (before add get-set)
+//alphaOffice4.totalRevenue = 100 //(before add get-set)
 //Cannot assign to property: 'totalRevenue' is a get-only property
-alphaOffice4.totalRevenue = 100
+alphaOffice4.totalRevenue = 400
 alphaOffice4.printTotalRevenue()
+//: Using Property Observers
+struct Employee {
+    var hourlyWage = 15 {
+        willSet{
+            // it will add newValue
+            print("The hourly wage is about to be changed from \(hourlyWage) to \(newValue)")
+        }
+        didSet {
+            // it will keep oldValue before change
+            print("The hourly wage has been changed from \(oldValue) to \(hourlyWage)")
+        }
+    }
+}
+
+var codey = Employee()
+codey.hourlyWage = 20
+//:
+struct Cat7 {
+    private var numberOfLives: Int {
+        // wilSet is called right before we set the property
+        willSet {
+            print("Uh-oh, number of lives is changing to \(newValue)")
+        }
+        // didSet is called right afterward
+        didSet(oldLives){
+            print("Welp, we don’t have \(oldLives) anymore")
+        }
+        
+    }
+    
+    init(numberOfLives: Int){
+        self.numberOfLives = numberOfLives
+    }
+    
+    mutating func loseOneLive() {
+        self.numberOfLives -= 1
+    }
+}
+
+var scrambles7 = Cat7(numberOfLives: 9)
+scrambles7.loseOneLive()
+//:
+struct Office5 {
+    var paperclipCost = 10
+    private var paperclipSales : Int {
+        willSet {
+            print("We adjusted the sales to \(newValue) paperclips.")
+        }
+        didSet {
+            print("Originally, we sold \(oldValue) paperclips.")
+        }
+    }
+    
+    var totalRevenue: Int {
+        get {
+            return (paperclipCost * paperclipSales) + getSecretRevenue()
+        }
+        set(newTotalRevenue) {
+            paperclipSales = (newTotalRevenue - getSecretRevenue()) / paperclipCost
+        }
+    }
+    
+    init(paperclipSales: Int) {
+        self.paperclipSales = paperclipSales
+    }
+    
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+}
+
+var alphaOffice5 = Office5(paperclipSales: 18)
+alphaOffice5.totalRevenue = 400
+alphaOffice5.printTotalRevenue()
