@@ -365,3 +365,75 @@ struct Office5 {
 var alphaOffice5 = Office5(paperclipSales: 18)
 alphaOffice5.totalRevenue = 400
 alphaOffice5.printTotalRevenue()
+//:Implementing a Private Setter
+struct Cat8 {
+    private(set) var numberOfLives: Int
+}
+//:
+struct Cat9 {
+     public private(set) var numberOfLives: Int = 9
+}
+var scrambles9 = Cat9()
+print(scrambles9.numberOfLives)
+//scrambles9.numberOfLives  = 20
+// This causes a compiler error due to invalid access: Cannot assign to property: 'numberOfLives' setter is inaccessible
+//:
+struct User {
+    private(set) var name: String
+    
+    mutating func updateName(to newName: String) {
+        if newName != "" {
+            name = newName
+        }
+    }
+}
+
+var currentUser = User(name: "codey")
+currentUser.updateName(to: "Codey")
+print(currentUser.name)
+
+//currentUser.name = "Bob"
+//Cannot assign to property: 'name' setter is inaccessible
+//:
+struct Office7 {
+    var paperclipCost = 10
+    
+    //Give the paperclipSales property a private setter
+    private(set) var paperclipSales: Int {
+        willSet {
+            print("We adjusted the sales to \(newValue) paperclips.")
+        }
+        didSet {
+            print("Originally we sold \(oldValue) paperclips.")
+        }
+    }
+    
+    var totalRevenue: Int {
+           get {
+               return (paperclipSales * paperclipCost) + getSecretRevenue()
+           }
+           set(newTotalRevenue) {
+               paperclipSales = (newTotalRevenue - getSecretRevenue()) / paperclipCost
+           }
+       }
+
+       init(paperclipSales: Int) {
+           self.paperclipSales = paperclipSales
+       }
+       
+       private func getSecretRevenue() -> Int {
+           return 100
+       }
+       
+       func printTotalRevenue() {
+           print("Our total revenue this month is \(totalRevenue).")
+       }
+   }
+
+var alphaOffice7 = Office7(paperclipSales: 18)
+alphaOffice7.totalRevenue = 400
+alphaOffice7.printTotalRevenue()
+//Print the value of paperclipSales to the console.
+print(alphaOffice7.paperclipSales)
+// Attempt to set the value of paperclipSales.
+//alphaOffice7.paperclipSales = 10
