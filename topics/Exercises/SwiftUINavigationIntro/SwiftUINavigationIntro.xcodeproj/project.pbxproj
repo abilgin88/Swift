@@ -11,6 +11,7 @@
 		85D9D45B291B5732000CDD99 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D45A291B5732000CDD99 /* ContentView.swift */; };
 		85D9D45D291B5733000CDD99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D45C291B5733000CDD99 /* Assets.xcassets */; };
 		85D9D460291B5733000CDD99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85D9D45F291B5733000CDD99 /* Preview Assets.xcassets */; };
+		85D9D467291B59C8000CDD99 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D9D466291B59C8000CDD99 /* ItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		85D9D45A291B5732000CDD99 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		85D9D45C291B5733000CDD99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85D9D45F291B5733000CDD99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		85D9D466291B59C8000CDD99 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				85D9D458291B5732000CDD99 /* SwiftUINavigationIntroApp.swift */,
 				85D9D45A291B5732000CDD99 /* ContentView.swift */,
+				85D9D466291B59C8000CDD99 /* ItemDetailView.swift */,
 				85D9D45C291B5733000CDD99 /* Assets.xcassets */,
 				85D9D45E291B5733000CDD99 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85D9D467291B59C8000CDD99 /* ItemDetailView.swift in Sources */,
 				85D9D45B291B5732000CDD99 /* ContentView.swift in Sources */,
 				85D9D459291B5732000CDD99 /* SwiftUINavigationIntroApp.swift in Sources */,
 			);
