@@ -515,3 +515,150 @@ struct Office8 {
 var alphaOffice8 = Office8(paperclipSales: 18)
 alphaOffice8.totalRevenue = 400
 alphaOffice8.printTotalRevenue()
+
+//:Extensions
+struct User3 {
+    let name: String
+}
+
+extension User3 {
+    var description: String {
+        return "This is a user named \(name)"
+    }
+}
+User3(name: "Abdullah").description
+//:
+struct Cat12 {
+    let name: String
+    let age: Int
+}
+
+extension Cat12 {
+    static let famousCats = [
+        Cat12(name: "Stubbs", age: 20),
+        Cat12(name: "Sweet Tart", age: 12),
+        Cat12(name: "Hank the Cat", age: 13)
+    
+    ]
+}
+print(Cat12.famousCats.count)
+//:
+extension Int {
+    var isEven: Bool {
+        isMultiple(of: 2)
+    }
+}
+
+let catCount = 3
+print(catCount.isEven)
+//:
+struct Cat13 {
+    let name: String
+    let age: Int
+}
+
+// Extensions must not contain stored properties
+extension Cat13 {
+  //  var numberOfLegs: Int
+}
+//:
+struct Cat14 {
+    let name: String
+    let age: Int
+}
+
+extension Cat14 {
+    var numberOfLegs: Int { return 4}
+}
+
+Cat14(name: "Yeap", age: 3).numberOfLegs
+//:
+struct Office {
+    let paperclipCost = 10
+    static var paperclipSalesRecord: Int = 0
+    private var paperclipSales: Int  {
+        willSet {
+            print("We adjusted the sales to \(newValue) paperclips")
+            if newValue > Office.paperclipSalesRecord {
+              Office.paperclipSalesRecord = newValue
+            }
+        }
+        didSet {
+            print("Originally we sold \(oldValue) paperclips")
+        }
+    }
+    
+    var totalRevenue : Int {
+        get {
+            return (paperclipSales * paperclipCost) + getSecretRevenue()
+        }
+        set(newTotalRevenue) {
+            paperclipSales = (newTotalRevenue - getSecretRevenue()) / paperclipCost
+        }
+    }
+
+    init(paperclipSales: Int){
+        self.paperclipSales = paperclipSales
+    }
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+}
+
+// Write your extension here:
+
+struct Office9 {
+    let paperclipCost = 10
+    static var paperclipSalesRecord: Int = 0
+    private var paperclipSales: Int  {
+        willSet {
+            print("We adjusted the sales to \(newValue) paperclips")
+            if newValue > Office9.paperclipSalesRecord {
+              Office9.paperclipSalesRecord = newValue
+            }
+        }
+        didSet {
+            print("Originally we sold \(oldValue) paperclips")
+        }
+    }
+    
+    var totalRevenue : Int {
+        get {
+            return (paperclipSales * paperclipCost) + getSecretRevenue()
+        }
+        set(newTotalRevenue) {
+            paperclipSales = (newTotalRevenue - getSecretRevenue()) / paperclipCost
+        }
+    }
+
+    init(paperclipSales: Int){
+        self.paperclipSales = paperclipSales
+    }
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+}
+
+// Write your extension here:
+
+extension Office9 {
+  static func printCurrentRecord() {
+    print("The current record for paperclip sales is \(paperclipSalesRecord)")
+  }
+
+  var paperclipColor: String {return "gray"}
+
+}
+
+var alphaOffice9 = Office9(paperclipSales: 18)
+alphaOffice9.totalRevenue = 400
+
+// Use the new methods and properties here:
+Office9.printCurrentRecord()
+print("Alpha Office’s paperclips are \(alphaOffice9.paperclipColor)")
