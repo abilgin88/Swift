@@ -437,3 +437,81 @@ alphaOffice7.printTotalRevenue()
 print(alphaOffice7.paperclipSales)
 // Attempt to set the value of paperclipSales.
 //alphaOffice7.paperclipSales = 10
+//:Defining a Type Property
+struct Cat10 {
+    static var oldestCat : Int = 0
+}
+/*
+ create a variable type property that stores the value of oldestCat. It will be updated when a specific cat breaks the age record, but it will hold true across all cats. We define a type property using the static keyword:
+ */
+Cat10.oldestCat = 38
+print("So far the oldest cat we have seen is \(Cat10.oldestCat) years old.")
+//:
+//Methods can also be declared as static. These are called on the class, structure, or enumeration itself rather than an instance.
+
+struct Cat11 {
+    static func displayDescription() {
+        print("Cat's are great pets!")
+    }
+}
+Cat11.displayDescription()
+//:
+struct User2 {
+    static var allUsers = [User2]()
+    let id: Int
+    init(id: Int) {
+        self.id = id
+        User2.allUsers.append(self)
+    }
+}
+
+let userOne = User2(id: 1)
+let userTwo = User2(id: 2)
+let userThree = User2(id: 3)
+
+print(User2.allUsers)
+//:
+struct Office8 {
+    let paperclipCost = 10
+    // default Static Properties
+    static var paperclipSalesRecord: Int = 0
+    
+    private var paperclipSales: Int  {
+        willSet {
+          print("We adjusted the sales to \(newValue) paperclips")
+          if newValue > Office8.paperclipSalesRecord {
+            Office8.paperclipSalesRecord = newValue
+            print(Office8.paperclipSalesRecord)
+          }
+        }
+        didSet {
+            print("Originally we sold \(oldValue) paperclips")
+        }
+    }
+    
+    var totalRevenue : Int {
+        get {
+            return (paperclipSales * paperclipCost) + getSecretRevenue()
+        }
+        set(newTotalRevenue) {
+            paperclipSales = (newTotalRevenue - getSecretRevenue()) / paperclipCost
+        }
+    }
+
+    init(paperclipSales: Int){
+        self.paperclipSales = paperclipSales
+    }
+    
+    private func getSecretRevenue() -> Int {
+        return 100
+    }
+    
+    func printTotalRevenue() {
+        print("Our total revenue this month is \(totalRevenue)")
+    }
+    
+}
+
+var alphaOffice8 = Office8(paperclipSales: 18)
+alphaOffice8.totalRevenue = 400
+alphaOffice8.printTotalRevenue()
