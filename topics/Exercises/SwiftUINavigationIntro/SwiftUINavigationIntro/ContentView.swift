@@ -9,21 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        
-        // VStack to add 2 items
-        VStack {
-            Text("Items in Stock")
-                .font(.title)
-                .padding()
-            Spacer()
-            // button for navigate
-            Button {
-                print("Button tapped")
-            } label: {
-                Text("Shrimp Chips")
+
+        // Navigation view acts a container for navigable views and content
+        NavigationView {
+            // VStack to add 2 items
+            VStack {
+                Text("Items in Stock")
+                    .font(.title)
+                    .padding()
+                Spacer()
+                // button for navigate
+                Button {
+                    print("Button tapped")
+                } label: {
+                    Text("Shrimp Chips")
+                }
+                Spacer()
             }
-            Spacer()
-        }
+        }
     }
 }
 
