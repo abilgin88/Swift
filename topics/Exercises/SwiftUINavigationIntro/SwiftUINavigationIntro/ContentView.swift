@@ -27,6 +27,10 @@ struct ContentView: View {
                 })
                 Spacer()
             }
+            // Sets a navigation title of "Ligaya's Store
+            .navigationTitle(Text("Ligaya's Store"))
+            // Sets the styling of navigation title to inline
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

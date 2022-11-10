@@ -42,12 +42,7 @@ struct ItemDetailView: View {
                     NavigationLink(destination: Text("You bought all the \(itemName)!"),
                                    isActive: .constant(quantityRemaining == 0),
                                    label: {EmptyView()})
-                
                 )
-            
-            
-            
-            
         }
     }
 }
