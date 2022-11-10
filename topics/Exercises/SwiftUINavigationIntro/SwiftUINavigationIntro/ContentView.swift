@@ -18,15 +18,16 @@ struct ContentView: View {
                     .font(.title)
                     .padding()
                 Spacer()
-                // button for navigate
-                Button {
-                    print("Button tapped")
-                } label: {
+                
+                // Adding the NavigationLink moves the user to the item screen
+                // item name from "itemDetailView -> we pass from here
+                NavigationLink(destination: ItemDetailView(itemName: "Shrimp Chips"),
+                               label: {
                     Text("Shrimp Chips")
-                }
+                })
                 Spacer()
             }
-        }
+        }
     }
 }
 
