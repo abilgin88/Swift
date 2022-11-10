@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ItemDetailView: View {
+    // Generate a random number representing items and store in @State
+    @State var quantityRemaining = Int.random(in: 1...10)
+    
     // to store stock
     let itemName: String
     
@@ -20,11 +23,14 @@ struct ItemDetailView: View {
             Image(systemName: "photo")
                 .font(.system(size: 200))
                 .padding()
-            Text("Quantity Remaining: 3")
+            // set "quantityRemaining here
+            Text("Quantity Remaining: \(quantityRemaining)")
             Spacer()
-            // do decrement items when add to chart
+            // The button only decrements stock if an items is available
             Button(action: {
-                print("Button Tapped")
+                if quantityRemaining > 0 {
+                    quantityRemaining -= 1
+                }
             }, label: {
                 Text("Add one to your cart")
             })
