@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    let colors: [Color] = [.red, .green, .blue]
+    
     var body: some View {
-        VStack {
+        
+        VStack() {
             ForEach(0...2, id: \.self) {
-                Text("Result: \($0)")
+                Text("Result: \($0)").foregroundColor(self.colors[$0])
             }
+            Text("Finish")
+        
         }
     }
 }
